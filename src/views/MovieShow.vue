@@ -24,7 +24,7 @@
     </p>
     <p>
       <b>Run-time:</b>
-      {{ movie.runtime_minutes }}
+      {{ movie.runtime_minutes }} minutes
     </p>
     <p>
       <b>Type:</b>
