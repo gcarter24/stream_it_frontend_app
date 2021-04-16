@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import MovieShow from "../views/MovieShow.vue";
+import Random from "../views/Random.vue";
 
 Vue.use(VueRouter);
 
@@ -10,6 +11,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/movies/random/:id",
+    name: "Random",
+    component: Random,
   },
   {
     path: "/movies/:id",
