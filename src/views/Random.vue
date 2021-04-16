@@ -1,11 +1,6 @@
 <template>
   <div class="movies-random">
     <h1>{{ message }}</h1>
-    <!-- <p>
-      <b>Id:</b>
-      {{ movie.id }}
-    </p> -->
-
     <form>
       <p>
         Year:
