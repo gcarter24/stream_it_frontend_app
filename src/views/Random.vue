@@ -13,10 +13,10 @@
         <input type="text" v-model="media_type" placeholder="Type" />
         Language:
         <input type="text" v-model="language" placeholder="Language" />
-        <!-- Network:
+        Network:
         <input type="text" v-model="network" placeholder="Network" />
         Genre:
-        <input type="text" v-model="genre" placeholder="Genre" /> -->
+        <input type="text" v-model="genre" placeholder="Genre" />
       </p>
       <button v-on:click="randomMovie()">Any Random Movie</button>
       <p>{{ final_movie.title }}</p>
@@ -27,10 +27,10 @@
       <p>{{ final_movie.runtime_minutes }}</p>
       <p>{{ final_movie.media_type }}</p>
       <p>{{ final_movie.language }}</p>
-      <!-- <p>
+      <p>
         {{ final_movie.genre }}
-      </p> -->
-      <!-- <p>{{ final_movie.network }}</p> -->
+      </p>
+      <p>{{ final_movie.network }}</p>
     </form>
   </div>
 </template>
@@ -41,13 +41,13 @@ export default {
   data: function () {
     return {
       message: "Welcome to Random!",
-      media_type: "movie",
-      runtime_minutes: "242",
       year: "2021",
       rating: "R",
+      media_type: "movie",
       language: "English",
-      // genre: "Action",
-      // network: "HBO Max",
+      runtime_minutes: "242",
+      genre: "Action",
+      network: "HBO Max",
       final_movie: {},
     };
   },
@@ -56,13 +56,13 @@ export default {
     randomMovie: function () {
       console.log("in random");
       var params = {
-        title: this.title,
-        plot: this.plot,
-        media_type: this.media_type,
-        runtime_minutes: this.runtime_minutes,
         year: this.year,
         rating: this.rating,
+        media_type: this.media_type,
         language: this.language,
+        runtime_minutes: this.runtime_minutes,
+        genre: this.genre,
+        network: this.network,
       };
       axios.get("/api/movies/random", params).then((response) => {
         console.log(response.data);
