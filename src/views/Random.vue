@@ -18,7 +18,7 @@
         Genre:
         <input type="text" v-model="genre" placeholder="Genre" />
       </p>
-      <button v-on:click="randomMovie()">Any Random Movie</button>
+      <button @click="randomMovie()">Any Random Movie</button>
       <p>{{ final_movie.title }}</p>
       <img v-bind:src="final_movie.image" />
       <p>{{ final_movie.plot }}</p>
@@ -27,9 +27,7 @@
       <p>{{ final_movie.runtime_minutes }}</p>
       <p>{{ final_movie.media_type }}</p>
       <p>{{ final_movie.language }}</p>
-      <p>
-        {{ final_movie.genre }}
-      </p>
+      <p>{{ final_movie.genres }}</p>
       <p>{{ final_movie.network }}</p>
     </form>
   </div>
@@ -51,23 +49,29 @@ export default {
       final_movie: {},
     };
   },
-  created: function () {},
+  created: function () {
+    this.randomMovie();
+  },
   methods: {
     randomMovie: function () {
       console.log("in random");
-      var params = {
-        year: this.year,
-        rating: this.rating,
-        media_type: this.media_type,
-        language: this.language,
-        runtime_minutes: this.runtime_minutes,
-        genre: this.genre,
-        network: this.network,
-      };
-      axios.get("/api/movies/random", params).then((response) => {
-        console.log(response.data);
-        this.final_movie = response.data;
-      });
+      // var params = {
+      //   year: this.year,
+      //   rating: this.rating,
+      //   media_type: this.media_type,
+      //   language: this.language,
+      //   runtime_minutes: this.runtime_minutes,
+      //   genre: this.genre,
+      //   network: this.network,
+      // };
+      axios
+        .get(
+          "/api/movies/random?year=2021&rating=R&media_type=movie&language=English&runtime_minutes=242&genre=Action&network=HBO%20Max"
+        )
+        .then((response) => {
+          console.log(response.data);
+          this.final_movie = response.data;
+        });
     },
   },
 };
