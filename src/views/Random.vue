@@ -7,48 +7,36 @@
     </p> -->
 
     <form>
-      <div class="form-group">
-        <label>Year:</label>
-        <input type="text" class="form-control" v-model="movie.year" />
-      </div>
-      <div class="form-group">
-        <label>Rating:</label>
-        <input type="text" class="form-control" v-model="movie.rating" />
-      </div>
-      <div class="form-group">
-        <label>Run-time:</label>
-        <input type="text" class="form-control" v-model="movie.runtime_minutes" />
-      </div>
-      <div class="form-group">
-        <label>Type:</label>
-        <input type="text" class="form-control" v-model="movie.media_type" />
-      </div>
-      <div class="form-group">
-        <label>Language:</label>
-        <input type="text" class="form-control" v-model="movie.language" />
-      </div>
-      <div class="form-group">
-        <label>Genre:</label>
-        <input type="text" class="form-control" v-model="movie.genre" />
-      </div>
-      <div class="form-group">
-        <label>Network:</label>
-        <input type="text" class="form-control" v-model="movie.network" />
-      </div>
+      <p>
+        Year:
+        <input type="text" v-model="year" placeholder="Year" />
+        Rating:
+        <input type="text" v-model="rating" placeholder="Rating" />
+        Length:
+        <input type="text" v-model="runtime_minutes" placeholder="Length" />
+        Type:
+        <input type="text" v-model="media_type" placeholder="Type" />
+        Language:
+        <input type="text" v-model="language" placeholder="Language" />
+        Network:
+        <input type="text" v-model="network" placeholder="Network" />
+        Genre:
+        <input type="text" v-model="genre" placeholder="Genre" />
+      </p>
       <input type="submit" class="btn btn-primary" value="Any Random Movie" />
+      <p>{{ final_movie.title }}</p>
+      <img v-bind:src="final_movie.image" />
+      <p>{{ final_movie.plot }}</p>
+      <p>{{ final_movie.year }}</p>
+      <p>{{ final_movie.rating }}</p>
+      <p>{{ final_movie.runtime_minutes }}</p>
+      <p>{{ final_movie.media_type }}</p>
+      <p>{{ final_movie.language }}</p>
+      <p>
+        {{ final_movie.genre }}
+      </p>
+      <p>{{ final_movie.network }}</p>
     </form>
-    <p>{{ movie.title }}</p>
-    <img v-bind:src="movie.image" />
-    <p>{{ movie.plot }}</p>
-    <p>{{ movie.year }}</p>
-    <p>{{ movie.rating }}</p>
-    <p>{{ movie.runtime_minutes }}</p>
-    <p>{{ movie.media_type }}</p>
-    <p>{{ movie.language }}</p>
-    <p>
-      {{ movie.genre }}
-    </p>
-    <p>{{ movie.network }}</p>
   </div>
 </template>
 <style></style>
@@ -58,19 +46,20 @@ export default {
   data: function () {
     return {
       message: "Welcome to Random!",
-      title: "",
-      movie: {},
+      media_type: "movie",
+      runtime_minutes: "242",
+      year: "2021",
+      rating: "R",
+      language: "English",
+      genre: "Action",
+      network: "HBO Max",
+      final_movie: {},
     };
   },
-  created: function () {
-    console.log(this.$route.params.id);
-    axios.get(`/api/movies/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-      this.movie = response.data;
-    });
-  },
+  created: function () {},
   methods: {
     randomMovie: function () {
+      console.log("in random");
       var params = {
         title: this.title,
         plot: this.plot,
@@ -82,6 +71,7 @@ export default {
       };
       axios.get("/api/movies/random", params).then((response) => {
         console.log(response.data);
+        this.final_movie = response.data;
       });
     },
   },
