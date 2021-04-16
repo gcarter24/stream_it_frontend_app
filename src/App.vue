@@ -7,7 +7,7 @@
       |
       <router-link to="/movies/:id">Movies</router-link>
       |
-      <router-link to="/movies/random/:id">Random</router-link>
+      <router-link to="/movies/random">Random</router-link>
     </div>
     <router-view />
   </div>

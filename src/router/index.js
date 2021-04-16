@@ -13,7 +13,7 @@ const routes = [
     component: Home,
   },
   {
-    path: "/movies/random/:id",
+    path: "/movies/random",
     name: "Random",
     component: Random,
   },

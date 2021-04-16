@@ -13,12 +13,12 @@
         <input type="text" v-model="media_type" placeholder="Type" />
         Language:
         <input type="text" v-model="language" placeholder="Language" />
-        Network:
+        <!-- Network:
         <input type="text" v-model="network" placeholder="Network" />
         Genre:
-        <input type="text" v-model="genre" placeholder="Genre" />
+        <input type="text" v-model="genre" placeholder="Genre" /> -->
       </p>
-      <input type="submit" class="btn btn-primary" value="Any Random Movie" />
+      <button v-on:click="randomMovie()">Any Random Movie</button>
       <p>{{ final_movie.title }}</p>
       <img v-bind:src="final_movie.image" />
       <p>{{ final_movie.plot }}</p>
@@ -27,10 +27,10 @@
       <p>{{ final_movie.runtime_minutes }}</p>
       <p>{{ final_movie.media_type }}</p>
       <p>{{ final_movie.language }}</p>
-      <p>
+      <!-- <p>
         {{ final_movie.genre }}
-      </p>
-      <p>{{ final_movie.network }}</p>
+      </p> -->
+      <!-- <p>{{ final_movie.network }}</p> -->
     </form>
   </div>
 </template>
@@ -46,8 +46,8 @@ export default {
       year: "2021",
       rating: "R",
       language: "English",
-      genre: "Action",
-      network: "HBO Max",
+      // genre: "Action",
+      // network: "HBO Max",
       final_movie: {},
     };
   },
