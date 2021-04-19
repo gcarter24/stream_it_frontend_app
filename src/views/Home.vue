@@ -26,7 +26,7 @@
         </li> -->
         <input type="text" v-model="genre" placeholder="Genre" />
       </p>
-      <button v-on:click="randomMovie()">Any Random Movie</button>
+      <a v-on:click="randomMovie()" class="button primary">Any Random Movie</a>
       <p>{{ final_movie.title }}</p>
       <img v-bind:src="final_movie.image" />
       <p>{{ final_movie.plot }}</p>
@@ -46,7 +46,6 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "Stream-It",
       year: "",
       rating: "",
       media_type: "",
