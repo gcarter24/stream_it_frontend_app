@@ -2,22 +2,33 @@
   <div id="app">
     <!-- Wrapper -->
     <div id="wrapper" class="fade-in">
-      <!-- Intro -->
-      <div id="intro">
-        <h1>Stream-It</h1>
-        <p>
-          Don't know what to watch tonight? Enter some details about the kind of movie you're looking for and we'll make
-          the perfect suggestion for you!
-        </p>
-        <ul class="actions">
-          <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-        </ul>
-      </div>
-
       <!-- Header -->
       <header id="header">
         <!-- <a href="/" class="home">Website powered by Watchmode</a> -->
       </header>
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class=""><a href="/">Homepage</a></li>
+          <li><a href="/movies/:id">Movies</a></li>
+          <li><a href="/elements.html">Elements Reference</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
+          </li>
+        </ul>
+      </nav>
+      
       <router-view />
 
       <!-- Footer -->
@@ -94,13 +105,6 @@
         <a href="https://api.watchmode.com/" class="home">Website powered by Watchmode API</a>
       </div>
     </div>
-
-    |
-    <router-link to="/about">About</router-link>
-    |
-    <router-link to="/movies/:id">Movies</router-link>
-    |
-    <router-link to="/movies/random">Random</router-link>
   </div>
 </template>
 

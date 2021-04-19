@@ -1,43 +1,64 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
-    <form v-on:submit.prevent="randomMovie()">
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
+    <!-- Intro -->
+    <div id="intro">
+      <h1>Stream-It</h1>
       <p>
-        Year:
-        <input type="text" v-model="year" placeholder="Year" />
-        Rating:
-        <input type="text" v-model="rating" placeholder="Rating" />
-        Length:
-        <input type="text" v-model="runtime_minutes" placeholder="Length" />
-        Type:
-        <input type="text" v-model="media_type" placeholder="Type" />
-        Language:
-        <input type="text" v-model="language" placeholder="Language" />
-        Network:
-        <input type="text" v-model="network" placeholder="Network" />
-        Genre:
-        <!-- <li v-for="genre in genres" :key="genre.name">
+        Don't know what to watch tonight? Enter some details about the kind of movie you're looking for and we'll make
+        the perfect suggestion for you!
+      </p>
+      <ul class="actions">
+        <li><a href="/signup" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+      </ul>
+      <!-- Main -->
+      <div id="main">
+        <!-- Featured Post -->
+        <article class="post featured">
+          <header class="major">
+            <span class="date">MOVIE SUGGESTION</span>
+            <form v-on:submit.prevent="randomMovie()">
+              <ul>
+                <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                  {{ error }}
+                </li>
+              </ul>
+
+              <p>
+                Year:
+                <input type="text" v-model="year" placeholder="Year" />
+                Rating:
+                <input type="text" v-model="rating" placeholder="Rating" />
+                Length:
+                <input type="text" v-model="runtime_minutes" placeholder="Length" />
+                Type:
+                <input type="text" v-model="media_type" placeholder="Type" />
+                Language:
+                <input type="text" v-model="language" placeholder="Language" />
+                Network:
+                <input type="text" v-model="network" placeholder="Network" />
+                Genre:
+                <!-- <li v-for="genre in genres" :key="genre.name">
           {{ genre.name }}
         </li> -->
-        <input type="text" v-model="genre" placeholder="Genre" />
-      </p>
-      <a v-on:click="randomMovie()" class="button primary">Any Random Movie</a>
-      <p>{{ final_movie.title }}</p>
-      <img v-bind:src="final_movie.image" />
-      <p>{{ final_movie.plot }}</p>
-      <p>{{ final_movie.year }}</p>
-      <p>{{ final_movie.rating }}</p>
-      <p>{{ final_movie.runtime_minutes }}</p>
-      <p>{{ final_movie.media_type }}</p>
-      <p>{{ final_movie.language }}</p>
-      <p>{{ final_movie.genres }}</p>
-      <p>{{ final_movie.network }}</p>
-    </form>
+                <input type="text" v-model="genre" placeholder="Genre" />
+              </p>
+              <a v-on:click="randomMovie()" class="button primary">Any Random Movie</a>
+              <h2>{{ final_movie.title }}</h2>
+              <img v-bind:src="final_movie.image" />
+              <p>{{ final_movie.plot }}</p>
+              <p>{{ final_movie.year }}</p>
+              <p>{{ final_movie.rating }}</p>
+              <p>{{ final_movie.runtime_minutes }}</p>
+              <p>{{ final_movie.media_type }}</p>
+              <p>{{ final_movie.language }}</p>
+              <p>{{ final_movie.genres }}</p>
+              <p>{{ final_movie.network }}</p>
+            </form>
+            <a href="#" class="image main"><img v-bind:src="final_movie.image" alt="" /></a>
+          </header>
+        </article>
+      </div>
+    </div>
   </div>
 </template>
 <style></style>

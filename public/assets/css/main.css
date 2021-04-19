@@ -3319,6 +3319,7 @@ table.alt tbody tr td {
 /* Wrapper */
 
 #wrapper {
+  background-image: url("https://cdn.hipwallpaper.com/i/93/43/8ItozF.jpg");
   -moz-transition: opacity 0.5s ease;
   -webkit-transition: opacity 0.5s ease;
   -ms-transition: opacity 0.5s ease;
@@ -3385,7 +3386,7 @@ body.is-preload #wrapper.fade-in:before {
 
 #intro {
   color: #ffffff;
-  padding: 8rem 4rem 6rem 4rem;
+  padding: 2rem 4rem 6rem 4rem;
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
@@ -3401,7 +3402,7 @@ body.is-preload #wrapper.fade-in:before {
   -moz-justify-content: -moz-flex-end;
   -webkit-justify-content: -webkit-flex-end;
   -ms-justify-content: -ms-flex-end;
-  justify-content: flex-end;
+  justify-content: center;
   -moz-transition: opacity 1s ease, -moz-transform 1s ease;
   -webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
   -ms-transition: opacity 1s ease, -ms-transform 1s ease;
@@ -3619,7 +3620,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  height: 20rem;
+  height: -10rem;
   padding-bottom: 8rem;
   position: relative;
   text-align: center;
@@ -3734,8 +3735,9 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
   overflow: hidden;
   padding: 0 2rem 0 0;
   position: relative;
-  width: calc(100% - 4rem);
-  max-width: 72rem;
+  top: 0;
+  width: calc(100%);
+  max-width: 120rem;
   z-index: 2;
 }
 
@@ -3874,8 +3876,8 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 /* Main */
 
 #main {
-  background-color: #ffffff;
-  position: relative;
+  background-color: #201f2e50;
+  position: center;
   margin: 0 auto;
   width: calc(100% - 4rem);
   max-width: 72rem;

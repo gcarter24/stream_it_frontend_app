@@ -1,69 +1,58 @@
 <template>
   <div class="movies-show">
-    <h1>{{ message }}</h1>
-    <!-- <p>
-      <b>Id:</b>
-      {{ movie.id }}
-    </p> -->
-    <p>
-      <b>Title:</b>
-      {{ movie.title }}
-    </p>
-    <p><img v-bind:src="movie.image" /></p>
-    <p>
-      <b>Plot:</b>
-      {{ movie.plot }}
-    </p>
-    <p>
-      <b>Year:</b>
-      {{ movie.year }}
-    </p>
-    <p>
-      <b>Rating:</b>
-      {{ movie.rating }}
-    </p>
-    <p>
-      <b>Run-time:</b>
-      {{ movie.runtime_minutes }} minutes
-    </p>
-    <p>
-      <b>Type:</b>
-      {{ movie.media_type }}
-    </p>
-    <p>
-      <b>Language:</b>
-      {{ movie.language }}
-    </p>
-    <p>
-      <b>Genres:</b>
-      {{ movie.genres }}
-    </p>
-    <p>
-      <b>Network:</b>
-      {{ movie.network }}
-    </p>
+    <header id="header">
+      <a href="/" class="logo">Homepage</a>
+    </header>
     <!-- Main -->
     <div id="main">
       <!-- Featured Post -->
       <article class="post featured">
         <header class="major">
-          <span class="date">April 25, 2017</span>
-          <h2>
-            <a href="#">
-              And this is a
-              <br />
-              massive headline
-            </a>
-          </h2>
+          <span class="date">Featured Movie</span>
+          <h1>{{ message }}</h1>
+          <!-- <p>
+      <b>Id:</b>
+      {{ movie.id }}
+    </p> -->
           <p>
-            Aenean ornare velit lacus varius enim ullamcorper proin aliquam
-            <br />
-            facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor
-            <br />
-            amet nullam sed etiam veroeros.
+            <b>Title:</b>
+            {{ movie.title }}
+          </p>
+          <p><img v-bind:src="movie.image" /></p>
+          <p>
+            <b>Plot:</b>
+            {{ movie.plot }}
+          </p>
+          <p>
+            <b>Year:</b>
+            {{ movie.year }}
+          </p>
+          <p>
+            <b>Rating:</b>
+            {{ movie.rating }}
+          </p>
+          <p>
+            <b>Run-time:</b>
+            {{ movie.runtime_minutes }} minutes
+          </p>
+          <p>
+            <b>Type:</b>
+            {{ movie.media_type }}
+          </p>
+          <p>
+            <b>Language:</b>
+            {{ movie.language }}
+          </p>
+          <p>
+            <b>Genres:</b>
+            {{ movie.genres }}
+          </p>
+          <p>
+            <b>Network:</b>
+            {{ movie.network }}
           </p>
         </header>
-        <a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+        <a href="#" class="image main"><img v-bind:src="movie.image" alt="" /></a>
         <ul class="actions special">
           <li><a href="#" class="button large">Full Story</a></li>
         </ul>
