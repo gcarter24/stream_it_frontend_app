@@ -409,7 +409,7 @@ a:hover {
 
 strong,
 b {
-  color: #212931;
+  color: #f6f9fc;
 }
 
 h1,
@@ -418,7 +418,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #212931;
+  color: #f6fafd;
 }
 
 blockquote {
@@ -3319,12 +3319,12 @@ table.alt tbody tr td {
 /* Wrapper */
 
 #wrapper {
-  background-image: url("https://cdn.hipwallpaper.com/i/93/43/8ItozF.jpg");
   -moz-transition: opacity 0.5s ease;
   -webkit-transition: opacity 0.5s ease;
   -ms-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
   position: relative;
+  background-image: url("https://cdn.hipwallpaper.com/i/93/43/8ItozF.jpg");
   z-index: 1;
   overflow: hidden;
 }
@@ -3885,7 +3885,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 }
 
 #main > * {
-  padding: 4rem 4rem 2rem 4rem;
+  padding: 4rem 4rem 6rem 4rem;
   border-top: solid 2px #eeeeee;
   margin: 0;
 }
@@ -3919,7 +3919,7 @@ body.is-preload #intro:not(.hidden) + #header + #nav {
 
 @media screen and (max-width: 1280px) {
   #main > .post {
-    padding: 6rem 4rem 4rem 4rem;
+    padding: 20rem 4rem 4rem 4rem;
   }
 }
 
