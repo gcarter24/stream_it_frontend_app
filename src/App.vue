@@ -28,7 +28,7 @@
           </li>
         </ul>
       </nav>
-      
+
       <router-view />
 
       <!-- Footer -->
@@ -94,11 +94,12 @@
       <!-- Copyright -->
       <div id="copyright">
         <ul>
-          <li>&copy; Stream-It 2021</li>
+          <li>&copy;2021 Stream-It</li>
           <li>
             Design:
             <a href="https://gcarter24.github.io/">George Chris Carter</a>
-            <a href="https://html5up.net">& HTML5 UP</a>
+            <a>&</a>
+            <a href="https://html5up.net">HTML5 UP</a>
             <br />
           </li>
         </ul>

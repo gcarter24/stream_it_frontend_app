@@ -88,13 +88,13 @@ export default {
       axios
         .get("/api/movies/random", {
           params: {
-            year: this.year,
-            rating: this.rating,
-            media_type: this.media_type,
-            language: this.language,
-            runtime_minutes: this.runtime_minutes,
-            genre: this.genre,
-            network: this.network,
+            year: this.year || null,
+            rating: this.rating || null,
+            media_type: this.media_type || null,
+            language: this.language || null,
+            runtime_minutes: this.runtime_minutes || null,
+            genre: this.genre || null,
+            network: this.network || null,
           },
         })
         .then((response) => {
