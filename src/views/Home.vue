@@ -37,12 +37,9 @@
                 Network:
                 <input type="text" v-model="network" placeholder="Network" />
                 Genre:
-                <!-- <li v-for="genre in genres" :key="genre.name">
-          {{ genre.name }}
-        </li> -->
                 <input type="text" v-model="genre" placeholder="Genre" />
               </p>
-              <a v-on:click="randomMovie()" class="button primary">Any Random Movie</a>
+              <a v-on:click="randomMovie()" class="button primary">Get Movie Suggestion</a>
               <h2>{{ final_movie.title }}</h2>
               <img v-bind:src="final_movie.image" />
               <p>{{ final_movie.plot }}</p>
@@ -51,8 +48,8 @@
               <p>{{ final_movie.runtime_minutes }}</p>
               <p>{{ final_movie.media_type }}</p>
               <p>{{ final_movie.language }}</p>
-              <p>{{ final_movie.genres }}</p>
-              <p>{{ final_movie.network }}</p>
+              <p v-for="genre in final_movie.genres" v-bind:key="genre.name">{{ genre.name }}</p>
+              <p v-for="network in final_movie.network" v-bind:key="network.name">{{ network.name }}</p>
             </form>
             <a href="#" class="image main"><img v-bind:src="final_movie.image" alt="" /></a>
           </header>

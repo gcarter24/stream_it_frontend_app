@@ -2570,7 +2570,7 @@ input[type="radio"] + label:before {
 }
 
 label {
-  color: #212931;
+  color: #fafdff;
 }
 
 input[type="text"],

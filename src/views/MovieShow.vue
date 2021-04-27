@@ -5,6 +5,12 @@
     </header>
     <!-- Main -->
     <div id="main">
+      <div class="field">
+        <label for="title">Search Titles</label>
+        <input type="text" v-model="movie.title" placeholder="Search" />
+        <a v-on:click="movieShow()" class="button primary">Search for Title</a>
+      </div>
+
       <!-- Featured Post -->
       <article class="post featured">
         <header class="major">
@@ -14,6 +20,7 @@
       <b>Id:</b>
       {{ movie.id }}
     </p> -->
+
           <p>
             <b>Title:</b>
             {{ movie.title }}
@@ -43,9 +50,9 @@
             <b>Language:</b>
             {{ movie.language }}
           </p>
-          <p>
-            <b>Genres:</b>
-            {{ movie.genres }}
+          <p v-for="genre in movie.genres" v-bind:key="genre.name">
+            <b>Genre:</b>
+            {{ genre.name }}
           </p>
           <p>
             <b>Network:</b>
@@ -53,9 +60,7 @@
           </p>
         </header>
         <a href="#" class="image main"><img v-bind:src="movie.image" alt="" /></a>
-        <ul class="actions special">
-          <li><a href="#" class="button large">Full Story</a></li>
-        </ul>
+        <ul class="actions special"></ul>
       </article>
 
       <!-- Posts -->
