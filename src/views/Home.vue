@@ -23,36 +23,99 @@
                 </li>
               </ul>
 
-              <p>
-                Year:
-                <input type="text" v-model="year" placeholder="Year" />
-                Rating:
-                <input type="text" v-model="rating" placeholder="Rating" />
-                Length:
-                <input type="text" v-model="runtime_minutes" placeholder="Length" />
-                Type:
-                <input type="text" v-model="media_type" placeholder="Type" />
-                Language:
-                <input type="text" v-model="language" placeholder="Language" />
-                Network:
-                <input type="text" v-model="network" placeholder="Network" />
-                Genre:
-                <input type="text" v-model="genre" placeholder="Genre" />
-              </p>
-              <a v-on:click="randomMovie()" class="button primary">Get Movie Suggestion</a>
-              <h2>{{ final_movie.title }}</h2>
-              <img v-bind:src="final_movie.image" />
-              <p>{{ final_movie.plot }}</p>
-              <p>{{ final_movie.year }}</p>
-              <p>{{ final_movie.rating }}</p>
-              <p>{{ final_movie.runtime_minutes }}</p>
-              <p>{{ final_movie.media_type }}</p>
-              <p>{{ final_movie.language }}</p>
-              <p v-for="genre in final_movie.genres" v-bind:key="genre.name">{{ genre.name }}</p>
-              <p v-for="network in final_movie.network" v-bind:key="network.name">{{ network.name }}</p>
-              <a :href="final_movie.streaming_url" class="button primary">Watch Movie</a>
+              Year:
+              <input type="text" v-model="year" placeholder="Year" />
+              Rating:
+              <input type="text" v-model="rating" placeholder="Rating" />
+              Length:
+              <input type="text" v-model="runtime_minutes" placeholder="Length" />
+              Type:
+              <input type="text" v-model="media_type" placeholder="Type" />
+              <div class="col-12">
+                <select name="demo-category" id="demo-category">
+                  <option value="">- Type -</option>
+                  <option value="1">Manufacturing</option>
+                  <option value="1">Shipping</option>
+                  <option value="1">Administration</option>
+                  <option value="1">Human Resources</option>
+                </select>
+              </div>
+              Language:
+              <input type="text" v-model="language" placeholder="Language" />
+
+              Network:
+              <input type="text" v-model="network" placeholder="Network" />
+              <div class="col-12">
+                <select name="demo-category" id="demo-category">
+                  <option value="">- Networks -</option>
+                  <option value="1">Manufacturing</option>
+                  <option value="1">Shipping</option>
+                  <option value="1">Administration</option>
+                  <option value="1">Human Resources</option>
+                </select>
+              </div>
+
+              Genre:
+              <input type="text" v-model="genre" placeholder="Genre" />
+              <div class="col-12">
+                <select name="demo-category" id="demo-category">
+                  <option value="">- Genres -</option>
+                  <option value="1">Manufacturing</option>
+                  <option value="1">Shipping</option>
+                  <option value="1">Administration</option>
+                  <option value="1">Human Resources</option>
+                </select>
+              </div>
             </form>
-            <a href="#" class="image main"><img v-bind:src="final_movie.image" alt="" /></a>
+            <a
+              v-on:click="
+                randomMovie();
+                showMovie;
+              "
+              class="button primary"
+            >
+              Get Movie Suggestion
+            </a>
+            <div v-if="displayMovie">
+              <h2>{{ final_movie.title }}</h2>
+              <a href="#" class="image main"><img v-bind:src="final_movie.image" alt="" /></a>
+              <!-- <div v-if="displayMovie"> -->
+              <p>
+                <!-- <b>Plot:</b> -->
+                {{ final_movie.plot }}
+              </p>
+              <p>
+                <!-- <b>Year:</b> -->
+                {{ final_movie.year }}
+              </p>
+              <p>
+                <!-- <b>Rating:</b> -->
+                {{ final_movie.rating }}
+              </p>
+              <p>
+                <!-- <b>Run-time:</b> -->
+                {{ final_movie.runtime_minutes }}
+                <!-- minutes -->
+              </p>
+              <p>
+                <!-- <b>Type:</b> -->
+                {{ final_movie.media_type }}
+              </p>
+              <p>
+                <!-- <b>Language:</b> -->
+                {{ final_movie.language }}
+              </p>
+              <p v-for="genre in final_movie.genres" v-bind:key="genre.name">
+                <!-- <b>Genre:</b> -->
+                {{ genre.name }}
+              </p>
+              <p v-for="network in final_movie.network" v-bind:key="network.name">
+                <!-- <b>Network:</b> -->
+                {{ network.name }}
+              </p>
+              <a v-if="displayMovie" :href="final_movie.streaming_url" class="button primary">Watch Movie</a>
+              <!-- </div> -->
+            </div>
           </header>
         </article>
       </div>
@@ -73,12 +136,14 @@ export default {
       genre: "",
       network: "",
       streaming_url: "",
+      displayMovie: false,
       final_movie: {},
       errors: [],
     };
   },
   created: function () {
-    this.randomMovie();
+    // this.randomMovie();
+    this.showMovie();
   },
   methods: {
     randomMovie: function () {
@@ -103,6 +168,14 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    showMovie: function () {
+      // console.log("almost working");
+      // if (this.displayMovie === true) {
+      //   this.displayMovie = false;
+      // } else {
+      this.displayMovie = !this.displaySecret;
+      // }
     },
   },
 };

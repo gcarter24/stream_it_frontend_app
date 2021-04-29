@@ -2730,9 +2730,10 @@ input[type="radio"]:focus + label:before {
 }
 
 .image.main {
-  display: block;
+  /* display: block; */
+  position: center;
   margin: 4rem 0;
-  width: 100%;
+  width: 40%;
 }
 
 .image.main:first-child {

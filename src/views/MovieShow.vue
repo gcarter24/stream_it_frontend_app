@@ -25,7 +25,9 @@
             <b>Title:</b>
             {{ movie.title }}
           </p>
-          <p><img v-bind:src="movie.image" /></p>
+          <p>
+            <a href="#" class="image main"><img v-bind:src="movie.image" alt="" /></a>
+          </p>
           <p>
             <b>Plot:</b>
             {{ movie.plot }}
@@ -60,7 +62,7 @@
           </p>
           <a :href="movie.streaming_url" class="button primary">Watch Movie</a>
         </header>
-        <a href="#" class="image main"><img v-bind:src="movie.image" alt="" /></a>
+
         <ul class="actions special"></ul>
       </article>
 
