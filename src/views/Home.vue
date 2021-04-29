@@ -50,6 +50,7 @@
               <p>{{ final_movie.language }}</p>
               <p v-for="genre in final_movie.genres" v-bind:key="genre.name">{{ genre.name }}</p>
               <p v-for="network in final_movie.network" v-bind:key="network.name">{{ network.name }}</p>
+              <a :href="final_movie.streaming_url" class="button primary">Watch Movie</a>
             </form>
             <a href="#" class="image main"><img v-bind:src="final_movie.image" alt="" /></a>
           </header>
@@ -71,6 +72,7 @@ export default {
       runtime_minutes: "",
       genre: "",
       network: "",
+      streaming_url: "",
       final_movie: {},
       errors: [],
     };

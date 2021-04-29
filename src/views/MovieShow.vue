@@ -7,7 +7,7 @@
     <div id="main">
       <div class="field">
         <label for="title">Search Titles</label>
-        <input type="text" v-model="movie.title" placeholder="Search" />
+        <input type="text" v-model="title" placeholder="Search" />
         <a v-on:click="movieShow()" class="button primary">Search for Title</a>
       </div>
 
@@ -58,6 +58,7 @@
             <b>Network:</b>
             {{ movie.network }}
           </p>
+          <a :href="movie.streaming_url" class="button primary">Watch Movie</a>
         </header>
         <a href="#" class="image main"><img v-bind:src="movie.image" alt="" /></a>
         <ul class="actions special"></ul>
@@ -115,6 +116,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
+      title: "",
       message: "Movie Description",
       movie: {},
     };
