@@ -8,7 +8,7 @@
       <div class="field">
         <label for="title">Search Titles</label>
         <input type="text" v-model="title" placeholder="Search" />
-        <a v-on:click="movieShow()" class="button primary">Search for Title</a>
+        <a v-on:click="movieTitle()" class="button primary">Search for Title</a>
       </div>
 
       <!-- Featured Post -->
@@ -67,7 +67,7 @@
       </article>
 
       <!-- Posts -->
-      <section class="posts">
+      <!-- <section class="posts">
         <article>
           <header>
             <span class="date">April 24, 2017</span>
@@ -108,7 +108,7 @@
             <li><a href="#" class="button">Full Story</a></li>
           </ul>
         </article>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
@@ -124,12 +124,20 @@ export default {
     };
   },
   created: function () {
-    console.log(this.$route.params.id);
-    axios.get(`/api/movies/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
-      this.movie = response.data;
-    });
+    // console.log(this.$route.params.id);
+    // axios.get(`/api/movies/${this.$route.params.id}`).then((response) => {
+    //   console.log(response.data);
+    //   this.movie = response.data;
+    // });
+    // this.movieTitle();
   },
-  methods: {},
+  methods: {
+    movieTitle: function () {
+      axios.get(`/api/movies/36`).then((response) => {
+        console.log(response.data);
+        this.movie = response.data;
+      });
+    },
+  },
 };
 </script>

@@ -3326,6 +3326,7 @@ table.alt tbody tr td {
   transition: opacity 0.5s ease;
   position: relative;
   background-image: url("https://cdn.hipwallpaper.com/i/93/43/8ItozF.jpg");
+  background-repeat: repeat;
   z-index: 1;
   overflow: hidden;
 }

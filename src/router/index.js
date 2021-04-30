@@ -18,7 +18,7 @@ const routes = [
     component: Random,
   },
   {
-    path: "/movies/:id",
+    path: "/movies/",
     name: "MovieShow",
     component: MovieShow,
   },

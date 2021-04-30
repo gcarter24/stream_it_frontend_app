@@ -32,38 +32,26 @@
               Type:
               <input type="text" v-model="media_type" placeholder="Type" />
               <div class="col-12">
-                <select name="demo-category" id="demo-category">
-                  <option value="">- Type -</option>
-                  <option value="1">Manufacturing</option>
-                  <option value="1">Shipping</option>
-                  <option value="1">Administration</option>
-                  <option value="1">Human Resources</option>
+                <select v-model="media_type">
+                  <option value=""></option>
+                  <option value="1">TV-Series</option>
                 </select>
               </div>
               Language:
               <input type="text" v-model="language" placeholder="Language" />
 
               Network:
-              <input type="text" v-model="network" placeholder="Network" />
               <div class="col-12">
-                <select name="demo-category" id="demo-category">
-                  <option value="">- Networks -</option>
-                  <option value="1">Manufacturing</option>
-                  <option value="1">Shipping</option>
-                  <option value="1">Administration</option>
-                  <option value="1">Human Resources</option>
+                <select v-model="network">
+                  <option v-for="network in networks" v-bind:key="network.id">{{ network.name }}</option>
                 </select>
               </div>
 
               Genre:
-              <input type="text" v-model="genre" placeholder="Genre" />
               <div class="col-12">
-                <select name="demo-category" id="demo-category">
+                <select v-model="genre">
                   <option value="">- Genres -</option>
-                  <option value="1">Manufacturing</option>
-                  <option value="1">Shipping</option>
-                  <option value="1">Administration</option>
-                  <option value="1">Human Resources</option>
+                  <option v-for="genre in genres" v-bind:key="genre.id">{{ genre.name }}</option>
                 </select>
               </div>
             </form>
@@ -133,10 +121,10 @@ export default {
       media_type: "",
       language: "",
       runtime_minutes: "",
-      genre: "",
-      network: "",
       streaming_url: "",
       displayMovie: false,
+      genres: [],
+      networks: [],
       final_movie: {},
       errors: [],
     };
@@ -144,6 +132,14 @@ export default {
   created: function () {
     // this.randomMovie();
     this.showMovie();
+    axios.get(`api/genres`).then((response) => {
+      console.log(response.data);
+      this.genres = response.data;
+    });
+    axios.get(`api/networks`).then((response) => {
+      console.log(response.data);
+      this.networks = response.data;
+    });
   },
   methods: {
     randomMovie: function () {
