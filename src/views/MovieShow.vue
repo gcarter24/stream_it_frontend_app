@@ -124,19 +124,26 @@ export default {
     };
   },
   created: function () {
-    // console.log(this.$route.params.id);
-    // axios.get(`/api/movies/${this.$route.params.id}`).then((response) => {
-    //   console.log(response.data);
-    //   this.movie = response.data;
-    // });
-    // this.movieTitle();
+    console.log(this.$route.params.id);
+    axios.get(`/api/movies/${this.$route.params.id}`).then((response) => {
+      console.log(response.data);
+      this.movie = response.data;
+    });
+    this.movieTitle();
   },
   methods: {
     movieTitle: function () {
-      axios.get(`/api/movies/36`).then((response) => {
-        console.log(response.data);
-        this.movie = response.data;
-      });
+      console.log("movie title");
+      axios
+        .get(`/api/movies/title/${this.$route.params.id}`, {
+          params: {
+            title: this.title,
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.movie = response.data;
+        });
     },
   },
 };

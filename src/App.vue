@@ -10,7 +10,7 @@
       <nav id="nav">
         <ul class="links">
           <li class=""><a href="/">Homepage</a></li>
-          <li><a href="/movies/">Movies</a></li>
+          <li><a href="/movies/:id">Movies</a></li>
           <li><a href="/elements.html">Elements Reference</a></li>
         </ul>
         <ul class="icons">
