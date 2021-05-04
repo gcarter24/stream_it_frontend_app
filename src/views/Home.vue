@@ -58,8 +58,8 @@
               <div class="col-12">
                 <select v-model="media_type">
                   <option value="">-Types-</option>
-                  <option v-for="movie_type in movie_types" v-bind:key="movie_type">
-                    {{ movie_type }}
+                  <option v-for="media_type in media_types" v-bind:key="media_type">
+                    {{ media_type }}
                   </option>
                 </select>
               </div>
@@ -77,7 +77,7 @@
               Network:
               <div class="col-12">
                 <select v-model="network">
-                  <option value="">- Networks -</option>
+                  <option value="">-Networks-</option>
                   <option v-for="network in networks" v-bind:key="network.id">{{ network.name }}</option>
                 </select>
               </div>
@@ -85,7 +85,7 @@
               Genre:
               <div class="col-12">
                 <select v-model="genre">
-                  <option value="">- Genres -</option>
+                  <option value="">-Genres-</option>
                   <option v-for="genre in genres" v-bind:key="genre.id">{{ genre.name }}</option>
                 </select>
               </div>
@@ -172,7 +172,7 @@ export default {
     axios.get(`api/genres`).then((response) => {
       console.log(response.data);
       this.genres = response.data.genres;
-      this.movie_types = response.data.movie_types;
+      this.media_types = response.data.media_types;
       this.lengths = response.data.lengths;
       this.ratings = response.data.ratings;
       this.years = response.data.years;
