@@ -7,8 +7,8 @@
         Don't know what to watch tonight? Enter some details about the kind of movie you're looking for and we'll make
         the perfect suggestion for you!
       </p>
-      <ul class="actions">
-        <li><a href="/signup" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+      <ul id="middle" class="actions">
+        <li><a href="/movies" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
       </ul>
       <!-- Main -->
       <div id="main">
