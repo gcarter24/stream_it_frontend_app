@@ -24,25 +24,60 @@
               </ul>
 
               Year:
-              <input type="text" v-model="year" placeholder="Year" />
+              <!-- <input type="text" v-model="year" placeholder="Year" /> -->
+              <div class="col-12">
+                <select v-model="year">
+                  <option value="">-Year-</option>
+                  <option v-for="year in years" v-bind:key="year">
+                    {{ year }}
+                  </option>
+                </select>
+              </div>
               Rating:
-              <input type="text" v-model="rating" placeholder="Rating" />
+              <!-- <input type="text" v-model="rating" placeholder="Rating" /> -->
+              <div class="col-12">
+                <select v-model="rating">
+                  <option value="">-Rating-</option>
+                  <option v-for="rating in ratings" v-bind:key="rating">
+                    {{ rating }}
+                  </option>
+                </select>
+              </div>
               Length:
-              <input type="text" v-model="runtime_minutes" placeholder="Length" />
+              <!-- <input type="text" v-model="runtime_minutes" placeholder="Length" /> -->
+              <div class="col-12">
+                <select v-model="runtime_minutes">
+                  <option value="">-Length-</option>
+                  <option v-for="length in lengths" v-bind:key="length">
+                    {{ length }}
+                  </option>
+                </select>
+              </div>
               Type:
-              <input type="text" v-model="media_type" placeholder="Type" />
+              <!-- <input type="text" v-model="media_type" placeholder="Type" /> -->
               <div class="col-12">
                 <select v-model="media_type">
-                  <option value=""></option>
-                  <option value="1">TV-Series</option>
+                  <option value="">-Types-</option>
+                  <option v-for="movie_type in movie_types" v-bind:key="movie_type">
+                    {{ movie_type }}
+                  </option>
                 </select>
               </div>
               Language:
-              <input type="text" v-model="language" placeholder="Language" />
+              <!-- <input type="text" v-model="language" placeholder="Language" /> -->
+              <div class="col-12">
+                <select v-model="language">
+                  <option value="">-Language-</option>
+                  <option v-for="language in languages" v-bind:key="language">
+                    {{ language }}
+                  </option>
+                </select>
+              </div>
 
               Network:
               <div class="col-12">
                 <select v-model="network">
+                  <option value="">- Networks -</option>
                   <option v-for="network in networks" v-bind:key="network.id">{{ network.name }}</option>
                 </select>
               </div>
@@ -64,41 +99,43 @@
             >
               Get Movie Suggestion
             </a>
+
+            <!-- {{ final_movie }} -->
             <div v-if="displayMovie">
               <h2>{{ final_movie.title }}</h2>
               <a href="#" class="image main"><img v-bind:src="final_movie.image" alt="" /></a>
               <!-- <div v-if="displayMovie"> -->
               <p>
-                <!-- <b>Plot:</b> -->
+                <b>Plot:</b>
                 {{ final_movie.plot }}
               </p>
               <p>
-                <!-- <b>Year:</b> -->
+                <b>Year:</b>
                 {{ final_movie.year }}
               </p>
               <p>
-                <!-- <b>Rating:</b> -->
+                <b>Rating:</b>
                 {{ final_movie.rating }}
               </p>
               <p>
-                <!-- <b>Run-time:</b> -->
+                <b>Run-time:</b>
                 {{ final_movie.runtime_minutes }}
-                <!-- minutes -->
+                minutes
               </p>
               <p>
-                <!-- <b>Type:</b> -->
+                <b>Type:</b>
                 {{ final_movie.media_type }}
               </p>
               <p>
-                <!-- <b>Language:</b> -->
+                <b>Language:</b>
                 {{ final_movie.language }}
               </p>
               <p v-for="genre in final_movie.genres" v-bind:key="genre.name">
-                <!-- <b>Genre:</b> -->
+                <b>Genre:</b>
                 {{ genre.name }}
               </p>
               <p v-for="network in final_movie.network" v-bind:key="network.name">
-                <!-- <b>Network:</b> -->
+                <b>Network:</b>
                 {{ network.name }}
               </p>
               <a v-if="displayMovie" :href="final_movie.streaming_url" class="button primary">Watch Movie</a>
@@ -134,7 +171,12 @@ export default {
     this.showMovie();
     axios.get(`api/genres`).then((response) => {
       console.log(response.data);
-      this.genres = response.data;
+      this.genres = response.data.genres;
+      this.movie_types = response.data.movie_types;
+      this.lengths = response.data.lengths;
+      this.ratings = response.data.ratings;
+      this.years = response.data.years;
+      this.languages = response.data.languages;
     });
     axios.get(`api/networks`).then((response) => {
       console.log(response.data);
@@ -160,6 +202,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.final_movie = response.data;
+          // this.displayMovie = true;
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
