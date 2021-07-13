@@ -14,17 +14,19 @@
           <!-- <li><a href="/elements.html">Elements Reference</a></li> -->
         </ul>
         <ul class="icons">
-          <li>
+          <!-- <li>
             <a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a>
           </li>
           <li>
             <a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+          </li> -->
+          <li>
+            <a href="https://www.linkedin.com/in/georgechriscarter/" class="icon brands alt fa-linkedin">
+              <span class="label">LinkedIn</span>
+            </a>
           </li>
           <li>
-            <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
-          </li>
-          <li>
-            <a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a>
+            <a href="https://github.com/gcarter24" class="icon brands fa-github"><span class="label">GitHub</span></a>
           </li>
         </ul>
       </nav>
